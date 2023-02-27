@@ -32,8 +32,8 @@ public class MainView extends javax.swing.JFrame {
         desktopPanel = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         Produto = new javax.swing.JMenu();
-        addProduto = new javax.swing.JMenuItem();
-        showProdutos = new javax.swing.JMenuItem();
+        addProduct = new javax.swing.JMenuItem();
+        listProducts = new javax.swing.JMenuItem();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -52,16 +52,26 @@ public class MainView extends javax.swing.JFrame {
 
         Produto.setText("Produto");
 
-        addProduto.setText("Adicionar");
-        addProduto.addMouseListener(new java.awt.event.MouseAdapter() {
+        addProduct.setText("Adicionar");
+        addProduct.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                addProdutoMousePressed(evt);
+                addProductMousePressed(evt);
             }
         });
-        Produto.add(addProduto);
+        addProduct.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addProductActionPerformed(evt);
+            }
+        });
+        Produto.add(addProduct);
 
-        showProdutos.setText("Listar");
-        Produto.add(showProdutos);
+        listProducts.setText("Listar");
+        listProducts.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                listProductsMousePressed(evt);
+            }
+        });
+        Produto.add(listProducts);
 
         jMenuBar1.add(Produto);
 
@@ -82,13 +92,24 @@ public class MainView extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void addProdutoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addProdutoMousePressed
+    private void addProductMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addProductMousePressed
+        AddProduct addProduct = new AddProduct();
+        desktopPanel.add(addProduct);
+        addProduct.setVisible(true);
+    }//GEN-LAST:event_addProductMousePressed
+      
+    
+    private void addProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addProductActionPerformed
         // TODO add your handling code here:
-        AddProduct addaluno = new AddProduct();
-        desktopPanel.add(addaluno);
-        addaluno.setVisible(true);
-    }//GEN-LAST:event_addProdutoMousePressed
+    }//GEN-LAST:event_addProductActionPerformed
 
+    private void listProductsMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listProductsMousePressed
+        ListProduct listProduct = new ListProduct();
+        desktopPanel.add(listProduct);
+        listProduct.setVisible(true);
+    }//GEN-LAST:event_listProductsMousePressed
+
+    
     /**
      * @param args the command line arguments
      */
@@ -126,10 +147,10 @@ public class MainView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu Produto;
-    private javax.swing.JMenuItem addProduto;
+    private javax.swing.JMenuItem addProduct;
     private javax.swing.JDesktopPane desktopPanel;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem showProdutos;
+    private javax.swing.JMenuItem listProducts;
     // End of variables declaration//GEN-END:variables
 }

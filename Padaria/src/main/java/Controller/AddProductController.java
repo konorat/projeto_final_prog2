@@ -4,7 +4,7 @@
  */
 package Controller;
 
-import Model.Aluno;
+import model.Product;
 import View.AddProduct;
 import View.MainView;
 
@@ -15,11 +15,11 @@ import View.MainView;
 public class AddProductController {
     
     private AddProduct addAlunoView;
-    private Aluno aluno;
+    private Product product;
     
     public AddProductController() {
         addAlunoView = new AddProduct();
-        aluno = new Aluno();
+        product = new Product();
         
         MainView mainview = new MainView();
         
