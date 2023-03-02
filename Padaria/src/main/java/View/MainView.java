@@ -5,6 +5,11 @@
 package View;
 
 import Controller.AddProductController;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import model.Product;
+import model.dao.ProductDAO;
 
 /**
  *
@@ -29,13 +34,21 @@ public class MainView extends javax.swing.JFrame {
     private void initComponents() {
 
         jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuBar2 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenu2 = new javax.swing.JMenu();
         desktopPanel = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
-        Produto = new javax.swing.JMenu();
-        addProduct = new javax.swing.JMenuItem();
-        listProducts = new javax.swing.JMenuItem();
+        productBtn = new javax.swing.JMenu();
+        workerFIeld = new javax.swing.JMenu();
 
         jMenuItem1.setText("jMenuItem1");
+
+        jMenu1.setText("File");
+        jMenuBar2.add(jMenu1);
+
+        jMenu2.setText("Edit");
+        jMenuBar2.add(jMenu2);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -43,37 +56,28 @@ public class MainView extends javax.swing.JFrame {
         desktopPanel.setLayout(desktopPanelLayout);
         desktopPanelLayout.setHorizontalGroup(
             desktopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 845, Short.MAX_VALUE)
+            .addGap(0, 558, Short.MAX_VALUE)
         );
         desktopPanelLayout.setVerticalGroup(
             desktopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 449, Short.MAX_VALUE)
+            .addGap(0, 386, Short.MAX_VALUE)
         );
 
-        Produto.setText("Produto");
-
-        addProduct.setText("Adicionar");
-        addProduct.addMouseListener(new java.awt.event.MouseAdapter() {
+        productBtn.setText("Produto");
+        productBtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                addProductMousePressed(evt);
+                productBtnMousePressed(evt);
             }
         });
-        addProduct.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addProductActionPerformed(evt);
-            }
-        });
-        Produto.add(addProduct);
+        jMenuBar1.add(productBtn);
 
-        listProducts.setText("Listar");
-        listProducts.addMouseListener(new java.awt.event.MouseAdapter() {
+        workerFIeld.setText("Funcionário");
+        workerFIeld.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                listProductsMousePressed(evt);
+                workerFIeldMousePressed(evt);
             }
         });
-        Produto.add(listProducts);
-
-        jMenuBar1.add(Produto);
+        jMenuBar1.add(workerFIeld);
 
         setJMenuBar(jMenuBar1);
 
@@ -92,23 +96,21 @@ public class MainView extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void addProductMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addProductMousePressed
-        AddProduct addProduct = new AddProduct();
-        desktopPanel.add(addProduct);
-        addProduct.setVisible(true);
-    }//GEN-LAST:event_addProductMousePressed
-      
+    private void productBtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_productBtnMousePressed
+        ProductView productView = new ProductView();
+        desktopPanel.add(productView);
+        productView.setVisible(true);
+    }//GEN-LAST:event_productBtnMousePressed
+
+    private void workerFIeldMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_workerFIeldMousePressed
+        WorkerView workerView = new WorkerView();
+        desktopPanel.add(workerView);
+        workerView.setVisible(true);
+    }//GEN-LAST:event_workerFIeldMousePressed
     
-    private void addProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addProductActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_addProductActionPerformed
-
-    private void listProductsMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listProductsMousePressed
-        ListProduct listProduct = new ListProduct();
-        desktopPanel.add(listProduct);
-        listProduct.setVisible(true);
-    }//GEN-LAST:event_listProductsMousePressed
-
+    
+    
+    
     
     /**
      * @param args the command line arguments
@@ -146,11 +148,13 @@ public class MainView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu Produto;
-    private javax.swing.JMenuItem addProduct;
     private javax.swing.JDesktopPane desktopPanel;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem listProducts;
+    private javax.swing.JMenu productBtn;
+    private javax.swing.JMenu workerFIeld;
     // End of variables declaration//GEN-END:variables
 }

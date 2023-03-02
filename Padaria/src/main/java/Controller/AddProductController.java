@@ -5,7 +5,7 @@
 package Controller;
 
 import model.Product;
-import View.AddProduct;
+import View.ProductView;
 import View.MainView;
 
 /**
@@ -14,18 +14,18 @@ import View.MainView;
  */
 public class AddProductController {
     
-    private AddProduct addAlunoView;
+    private ProductView addProductView;
     private Product product;
     
     public AddProductController() {
-        addAlunoView = new AddProduct();
+        addProductView = new ProductView();
         product = new Product();
         
         MainView mainview = new MainView();
         
-        mainview.add(addAlunoView);
+        mainview.add(addProductView);
         
-        addAlunoView.setVisible(true);
+        addProductView.setVisible(true);
     }
     
 }

@@ -13,25 +13,24 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import model.Product;
+import model.Worker;
 
 /**
  *
  * @author Levy
  */
-public class ProductDAO {
-    public void create(Product p) {
+public class WorkerDAO {
+    public void create(Worker w) {
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
         
-        String sql = "INSERT INTO produtos(nome, preco, codigo, qnt) VALUES(?,?,?,?)";
+        String sql = "INSERT INTO funcionarios(nome, senha, cargo) VALUES(?,?,?)";
         
         try {
             stmt = con.prepareStatement(sql);
-            stmt.setString(1, p.getName());
-            stmt.setDouble(2, p.getPrice());
-            stmt.setInt(3, p.getCode());
-            stmt.setInt(4, p.getQnt());
+            stmt.setString(1, w.getName());
+            stmt.setString(2, w.getPassword());
+            stmt.setInt(3, w.getRole());
             
             stmt.executeUpdate();
             
@@ -43,26 +42,25 @@ public class ProductDAO {
         }
     }
     
-    public ArrayList<Product> read() {
+    public ArrayList<Worker> read() {
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;
         ResultSet rs;
-        ArrayList<Product> list = new ArrayList<>();
+        ArrayList<Worker> list = new ArrayList<>();
         
-        String sql = "SELECT * FROM `produtos`";
+        String sql = "SELECT * FROM `funcionarios`";
         
         try {
             stmt = con.prepareStatement(sql);
             rs = stmt.executeQuery();
             
             while(rs.next()) {
-                Product p = new Product();
-                p.setId(rs.getInt("id"));
-                p.setName(rs.getString("nome"));
-                p.setPrice(rs.getDouble("preco"));
-                p.setQnt(rs.getInt("qnt"));
+                Worker w = new Worker();
+                w.setId(rs.getInt("id"));
+                w.setName(rs.getString("nome"));
+                w.setRole(rs.getInt("cargo"));
                 
-                list.add(p);
+                list.add(w);
             }
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, ex);

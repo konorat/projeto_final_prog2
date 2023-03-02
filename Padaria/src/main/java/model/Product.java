@@ -10,14 +10,24 @@ package model;
  */
 public class Product {
     private int id;
+    private int code;
     private String name;
     private double price;
+    private int qnt;
 
     public int getId() {
         return id;
     }
 
     public void setId(int id) {
+        this.id = id;
+    }
+    
+    public int getCode() {
+        return id;
+    }
+
+    public void setCode(int id) {
         this.id = id;
     }
 
@@ -35,6 +45,14 @@ public class Product {
 
     public void setPrice(double price) {
         this.price = price;
+    }
+    
+    public int getQnt() {
+        return qnt;
+    }
+
+    public void setQnt(int qnt) {
+        this.qnt = qnt;
     }
     
     
