@@ -5,23 +5,25 @@
 package View;
 
 import java.util.ArrayList;
+import javax.swing.JButton;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import model.Product;
-import model.Worker;
+import model.User;
 import model.dao.ProductDAO;
-import model.dao.WorkerDAO;
+import model.dao.UserDAO;
 
 /**
  *
  * @author Levy
  */
-public class WorkerView extends javax.swing.JInternalFrame {
+public class ManageUsersVIew extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form WorkerView
      */
-    public WorkerView() {
+    public ManageUsersVIew() {
         initComponents();
     }
     
@@ -35,26 +37,26 @@ public class WorkerView extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        insertBtn = new javax.swing.JButton();
+        btnInsert = new javax.swing.JButton();
         exitBtn = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tableProducts = new javax.swing.JTable();
-        roleField = new javax.swing.JTextField();
+        txtRole = new javax.swing.JTextField();
         priceLabel2 = new javax.swing.JLabel();
-        nameFIeld = new javax.swing.JTextField();
+        txtName = new javax.swing.JTextField();
         nameLabel = new javax.swing.JLabel();
-        passwordField = new javax.swing.JTextField();
+        txtPassword = new javax.swing.JTextField();
         nameLabel1 = new javax.swing.JLabel();
 
-        insertBtn.setText("Cadastrar");
-        insertBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnInsert.setText("Cadastrar");
+        btnInsert.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                insertBtnMousePressed(evt);
+                btnInsertMousePressed(evt);
             }
         });
-        insertBtn.addActionListener(new java.awt.event.ActionListener() {
+        btnInsert.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                insertBtnActionPerformed(evt);
+                btnInsertActionPerformed(evt);
             }
         });
 
@@ -83,30 +85,30 @@ public class WorkerView extends javax.swing.JInternalFrame {
         });
         jScrollPane1.setViewportView(tableProducts);
 
-        roleField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        roleField.addActionListener(new java.awt.event.ActionListener() {
+        txtRole.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtRole.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                roleFieldActionPerformed(evt);
+                txtRoleActionPerformed(evt);
             }
         });
 
         priceLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         priceLabel2.setText("Cargo");
 
-        nameFIeld.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        nameFIeld.addActionListener(new java.awt.event.ActionListener() {
+        txtName.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nameFIeldActionPerformed(evt);
+                txtNameActionPerformed(evt);
             }
         });
 
         nameLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         nameLabel.setText("Nome");
 
-        passwordField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        passwordField.addActionListener(new java.awt.event.ActionListener() {
+        txtPassword.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                passwordFieldActionPerformed(evt);
+                txtPasswordActionPerformed(evt);
             }
         });
 
@@ -123,22 +125,22 @@ public class WorkerView extends javax.swing.JInternalFrame {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(nameFIeld, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(nameLabel))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(nameLabel1)
-                            .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(roleField, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtRole, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(priceLabel2))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(exitBtn, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(insertBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(btnInsert, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -151,11 +153,11 @@ public class WorkerView extends javax.swing.JInternalFrame {
                     .addComponent(nameLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(nameFIeld, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(roleField, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtRole, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(insertBtn)
+                .addComponent(btnInsert)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -168,12 +170,12 @@ public class WorkerView extends javax.swing.JInternalFrame {
 
     private void listValues() {
         try {
-            WorkerDAO workerDAO = new WorkerDAO();
+            UserDAO workerDAO = new UserDAO();
             
             DefaultTableModel model = (DefaultTableModel) tableProducts.getModel();
             model.setNumRows(0);
             
-            ArrayList<Worker> list = workerDAO.read();
+            ArrayList<User> list = workerDAO.read();
             
             for(int i = 0; i < list.size(); i++) {
                 model.addRow(new Object[]{
@@ -187,50 +189,83 @@ public class WorkerView extends javax.swing.JInternalFrame {
         }
     }
     
-    private void insertBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertBtnActionPerformed
-        Worker p = new Worker();
-        WorkerDAO dao = new WorkerDAO();
+    private void btnInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertActionPerformed
+        User p = new User();
+        UserDAO dao = new UserDAO();
 
-        p.setName(nameFIeld.getText());
-        p.setPassword(passwordField.getText());
-        p.setRole(Integer.parseInt(roleField.getText()));
+        p.setName(txtName.getText());
+        p.setPassword(txtPassword.getText());
+        p.setRole(Integer.parseInt(txtRole.getText()));
 
         dao.create(p);
 
         listValues();
-    }//GEN-LAST:event_insertBtnActionPerformed
+    }//GEN-LAST:event_btnInsertActionPerformed
 
     private void exitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitBtnActionPerformed
 
     }//GEN-LAST:event_exitBtnActionPerformed
 
-    private void nameFIeldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameFIeldActionPerformed
+    private void txtNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_nameFIeldActionPerformed
+    }//GEN-LAST:event_txtNameActionPerformed
 
-    private void roleFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_roleFieldActionPerformed
+    private void txtRoleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRoleActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_roleFieldActionPerformed
+    }//GEN-LAST:event_txtRoleActionPerformed
 
-    private void passwordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordFieldActionPerformed
+    private void txtPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasswordActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_passwordFieldActionPerformed
+    }//GEN-LAST:event_txtPasswordActionPerformed
 
-    private void insertBtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_insertBtnMousePressed
+    private void btnInsertMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnInsertMousePressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_insertBtnMousePressed
+    }//GEN-LAST:event_btnInsertMousePressed
 
+    public JButton getBtnInsert() {
+        return btnInsert;
+    }
+
+    public void setBtnInsert(JButton btnInsert) {
+        this.btnInsert = btnInsert;
+    }
+
+    public JTextField getTxtName() {
+        return txtName;
+    }
+
+    public void setTxtName(JTextField txtName) {
+        this.txtName = txtName;
+    }
+
+    public JTextField getTxtPassword() {
+        return txtPassword;
+    }
+
+    public void setTxtPassword(JTextField txtPassword) {
+        this.txtPassword = txtPassword;
+    }
+
+    public JTextField getTxtRole() {
+        return txtRole;
+    }
+
+    public void setTxtRole(JTextField txtRole) {
+        this.txtRole = txtRole;
+    }
+
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnInsert;
     private javax.swing.JButton exitBtn;
-    private javax.swing.JButton insertBtn;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField nameFIeld;
     private javax.swing.JLabel nameLabel;
     private javax.swing.JLabel nameLabel1;
-    private javax.swing.JTextField passwordField;
     private javax.swing.JLabel priceLabel2;
-    private javax.swing.JTextField roleField;
     private javax.swing.JTable tableProducts;
+    private javax.swing.JTextField txtName;
+    private javax.swing.JTextField txtPassword;
+    private javax.swing.JTextField txtRole;
     // End of variables declaration//GEN-END:variables
 }

@@ -6,6 +6,9 @@ package Controller;
 
 import View.ProductView;
 import java.awt.event.ActionEvent;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 import model.Product;
 import model.dao.ProductDAO;
 
@@ -29,7 +32,7 @@ public class ProductController {
         });
         
    
-        view.getBtnExit().addActionListener((ActionEvent e)->{
+        view.getBtnInsert().addActionListener((ActionEvent e)->{
             insertProduct();
         });
         
@@ -44,10 +47,31 @@ public class ProductController {
         p.setPrice(Double.parseDouble(view.getTxtPrice().getText()));
         p.setQnt(Integer.parseInt(view.getTxtQnt().getText()));
         
-        dao.create(p);
+        productdao.create(p);
         
         listValues();
         
+    }
+    
+    private void listValues() {
+        try {            
+            DefaultTableModel model = (DefaultTableModel) view.getTbProducts().getModel();
+            model.setNumRows(0);
+            
+            ArrayList<Product> list = productdao.read();
+            
+//            for(int i = 0; i < list.size(); i++) {;
+//                model.addRow(new Object[]{
+//                   list.get(i).getCode(),
+//                   list.get(i).getName(),
+//                   list.get(i).getPrice(),
+//                   list.get(i).getQnt()
+//                });
+//            }
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Erro ao listar valores: " + e);
+        }
     }
     
     

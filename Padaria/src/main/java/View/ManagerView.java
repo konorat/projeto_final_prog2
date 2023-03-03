@@ -15,12 +15,12 @@ import model.dao.ProductDAO;
  *
  * @author Levy
  */
-public class MainView extends javax.swing.JFrame {
+public class ManagerView extends javax.swing.JFrame {
 
     /**
      * Creates new form MainView
      */
-    public MainView() {
+    public ManagerView() {
         initComponents();
     }
 
@@ -40,8 +40,11 @@ public class MainView extends javax.swing.JFrame {
         desktopPanel = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         productBtn = new javax.swing.JMenu();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        btnInsert = new javax.swing.JMenuItem();
+        btnList = new javax.swing.JMenuItem();
         workerFIeld = new javax.swing.JMenu();
+        btnInsertUser = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -65,28 +68,38 @@ public class MainView extends javax.swing.JFrame {
         );
 
         productBtn.setText("Produto");
-        productBtn.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                productBtnMousePressed(evt);
-            }
-        });
 
-        jMenuItem2.setText("Cadastrar");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        btnInsert.setText("Cadastrar");
+        btnInsert.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
+                btnInsertActionPerformed(evt);
             }
         });
-        productBtn.add(jMenuItem2);
+        productBtn.add(btnInsert);
+
+        btnList.setText("Listar");
+        btnList.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnListActionPerformed(evt);
+            }
+        });
+        productBtn.add(btnList);
 
         jMenuBar1.add(productBtn);
 
-        workerFIeld.setText("Funcionário");
-        workerFIeld.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                workerFIeldMousePressed(evt);
+        workerFIeld.setText("Usuários");
+
+        btnInsertUser.setText("Cadastrar");
+        btnInsertUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnInsertUserActionPerformed(evt);
             }
         });
+        workerFIeld.add(btnInsertUser);
+
+        jMenuItem3.setText("Listar");
+        workerFIeld.add(jMenuItem3);
+
         jMenuBar1.add(workerFIeld);
 
         setJMenuBar(jMenuBar1);
@@ -106,23 +119,21 @@ public class MainView extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void productBtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_productBtnMousePressed
+    private void btnListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnListActionPerformed
+
+    private void btnInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertActionPerformed
         ProductView productView = new ProductView();
         desktopPanel.add(productView);
-        productView.setVisible(true);
-        
-        ProductController pc = new ProductController();
-    }//GEN-LAST:event_productBtnMousePressed
+        productView.setVisible(true);        // TODO add your handling code here:
+    }//GEN-LAST:event_btnInsertActionPerformed
 
-    private void workerFIeldMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_workerFIeldMousePressed
-        WorkerView workerView = new WorkerView();
+    private void btnInsertUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertUserActionPerformed
+        ManageUsersVIew workerView = new ManageUsersVIew();
         desktopPanel.add(workerView);
         workerView.setVisible(true);
-    }//GEN-LAST:event_workerFIeldMousePressed
-
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-       new ProductController();
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
+    }//GEN-LAST:event_btnInsertUserActionPerformed
     
     
     
@@ -145,32 +156,36 @@ public class MainView extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MainView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ManagerView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MainView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ManagerView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MainView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ManagerView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MainView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ManagerView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MainView().setVisible(true);
+                new ManagerView().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem btnInsert;
+    private javax.swing.JMenuItem btnInsertUser;
+    private javax.swing.JMenuItem btnList;
     private javax.swing.JDesktopPane desktopPanel;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenu productBtn;
     private javax.swing.JMenu workerFIeld;
     // End of variables declaration//GEN-END:variables

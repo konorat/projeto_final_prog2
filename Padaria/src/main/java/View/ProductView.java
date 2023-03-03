@@ -7,6 +7,7 @@ package View;
 import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import model.Product;
@@ -23,7 +24,6 @@ public class ProductView extends javax.swing.JInternalFrame {
      */
     public ProductView() {
         initComponents();
-        listValues();
     }
 
     /**
@@ -41,7 +41,7 @@ public class ProductView extends javax.swing.JInternalFrame {
         btnInsert = new javax.swing.JButton();
         btnExit = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tableProducts = new javax.swing.JTable();
+        tbProducts = new javax.swing.JTable();
         txtPrice = new javax.swing.JTextField();
         txtCode = new javax.swing.JTextField();
         txtQnt = new javax.swing.JTextField();
@@ -62,20 +62,10 @@ public class ProductView extends javax.swing.JInternalFrame {
         nameLabel.setText("Nome");
 
         btnInsert.setText("Cadastrar");
-        btnInsert.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnInsertActionPerformed(evt);
-            }
-        });
 
         btnExit.setText("Sair");
-        btnExit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnExitActionPerformed(evt);
-            }
-        });
 
-        tableProducts.setModel(new javax.swing.table.DefaultTableModel(
+        tbProducts.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -83,7 +73,7 @@ public class ProductView extends javax.swing.JInternalFrame {
                 "Código", "Nome", "Preço", "Quantidade"
             }
         ));
-        jScrollPane1.setViewportView(tableProducts);
+        jScrollPane1.setViewportView(tbProducts);
 
         txtPrice.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtPrice.addActionListener(new java.awt.event.ActionListener() {
@@ -170,40 +160,11 @@ public class ProductView extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void listValues() {
-        try {
-            ProductDAO productDAO = new ProductDAO();
-            
-            DefaultTableModel model = (DefaultTableModel) tableProducts.getModel();
-            model.setNumRows(0);
-            
-            ArrayList<Product> list = productDAO.read();
-            
-            for(int i = 0; i < list.size(); i++) {
-                model.addRow(new Object[]{
-                   list.get(i).getCode(),
-                   list.get(i).getName(),
-                   list.get(i).getPrice(),
-                   list.get(i).getQnt()
-                });
-            }
-            
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Erro ao listar valores: " + e);
-        }
-    }
+    
     
     private void txtNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNameActionPerformed
-
-    private void btnInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertActionPerformed
-   
-    }//GEN-LAST:event_btnInsertActionPerformed
-
-    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
-
-    }//GEN-LAST:event_btnExitActionPerformed
 
     private void txtPriceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPriceActionPerformed
         // TODO add your handling code here:
@@ -264,10 +225,14 @@ public class ProductView extends javax.swing.JInternalFrame {
     public void setTxtQnt(JTextField txtQnt) {
         this.txtQnt = txtQnt;
     }
-    
-    
 
+    public JTable getTbProducts() {
+        return tbProducts;
+    }
 
+    public void setTbProducts(JTable tbProducts) {
+        this.tbProducts = tbProducts;
+    }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnExit;
@@ -277,7 +242,7 @@ public class ProductView extends javax.swing.JInternalFrame {
     private javax.swing.JLabel priceLabel;
     private javax.swing.JLabel priceLabel2;
     private javax.swing.JLabel priceLabel3;
-    private javax.swing.JTable tableProducts;
+    private javax.swing.JTable tbProducts;
     private javax.swing.JTextField txtCode;
     private javax.swing.JTextField txtName;
     private javax.swing.JTextField txtPrice;
