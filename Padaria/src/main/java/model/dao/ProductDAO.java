@@ -10,8 +10,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import model.Product;
 
@@ -20,8 +18,25 @@ import model.Product;
  * @author Levy
  */
 public class ProductDAO {
+    
+    private static ProductDAO instance;
+    Connection con;
+    
+    private ProductDAO(){
+        con = ConnectionFactory.getConnection();
+        
+    }
+    
+    public static ProductDAO getInstance(){
+        if(instance == null){
+            instance = new ProductDAO();
+        }
+        return instance;
+    }
+    
+    
     public void create(Product p) {
-        Connection con = ConnectionFactory.getConnection();
+        
         PreparedStatement stmt = null;
         
         String sql = "INSERT INTO produtos(nome, preco, codigo, qnt) VALUES(?,?,?,?)";
@@ -44,7 +59,7 @@ public class ProductDAO {
     }
     
     public ArrayList<Product> read() {
-        Connection con = ConnectionFactory.getConnection();
+        
         PreparedStatement stmt = null;
         ResultSet rs;
         ArrayList<Product> list = new ArrayList<>();

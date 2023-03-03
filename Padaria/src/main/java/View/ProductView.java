@@ -5,7 +5,9 @@
 package View;
 
 import java.util.ArrayList;
+import javax.swing.JButton;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import model.Product;
 import model.dao.ProductDAO;
@@ -33,23 +35,23 @@ public class ProductView extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        nameFIeld = new javax.swing.JTextField();
+        txtName = new javax.swing.JTextField();
         priceLabel = new javax.swing.JLabel();
         nameLabel = new javax.swing.JLabel();
-        insertBtn = new javax.swing.JButton();
-        exitBtn = new javax.swing.JButton();
+        btnInsert = new javax.swing.JButton();
+        btnExit = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tableProducts = new javax.swing.JTable();
-        priceFIeld = new javax.swing.JTextField();
-        codeField = new javax.swing.JTextField();
-        qntField = new javax.swing.JTextField();
+        txtPrice = new javax.swing.JTextField();
+        txtCode = new javax.swing.JTextField();
+        txtQnt = new javax.swing.JTextField();
         priceLabel2 = new javax.swing.JLabel();
         priceLabel3 = new javax.swing.JLabel();
 
-        nameFIeld.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        nameFIeld.addActionListener(new java.awt.event.ActionListener() {
+        txtName.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nameFIeldActionPerformed(evt);
+                txtNameActionPerformed(evt);
             }
         });
 
@@ -59,17 +61,17 @@ public class ProductView extends javax.swing.JInternalFrame {
         nameLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         nameLabel.setText("Nome");
 
-        insertBtn.setText("Cadastrar");
-        insertBtn.addActionListener(new java.awt.event.ActionListener() {
+        btnInsert.setText("Cadastrar");
+        btnInsert.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                insertBtnActionPerformed(evt);
+                btnInsertActionPerformed(evt);
             }
         });
 
-        exitBtn.setText("Sair");
-        exitBtn.addActionListener(new java.awt.event.ActionListener() {
+        btnExit.setText("Sair");
+        btnExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                exitBtnActionPerformed(evt);
+                btnExitActionPerformed(evt);
             }
         });
 
@@ -83,24 +85,24 @@ public class ProductView extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(tableProducts);
 
-        priceFIeld.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        priceFIeld.addActionListener(new java.awt.event.ActionListener() {
+        txtPrice.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtPrice.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                priceFIeldActionPerformed(evt);
+                txtPriceActionPerformed(evt);
             }
         });
 
-        codeField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        codeField.addActionListener(new java.awt.event.ActionListener() {
+        txtCode.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtCode.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                codeFieldActionPerformed(evt);
+                txtCodeActionPerformed(evt);
             }
         });
 
-        qntField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        qntField.addActionListener(new java.awt.event.ActionListener() {
+        txtQnt.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtQnt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                qntFieldActionPerformed(evt);
+                txtQntActionPerformed(evt);
             }
         });
 
@@ -120,25 +122,25 @@ public class ProductView extends javax.swing.JInternalFrame {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(nameFIeld, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(nameLabel))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(priceFIeld, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(priceLabel))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(codeField, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtCode, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(priceLabel3))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(priceLabel2)
-                            .addComponent(qntField, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtQnt, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(exitBtn, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(insertBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(btnExit, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnInsert, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -152,16 +154,16 @@ public class ProductView extends javax.swing.JInternalFrame {
                     .addComponent(priceLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(nameFIeld, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(priceFIeld, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(codeField, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(qntField, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCode, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtQnt, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(insertBtn)
+                .addComponent(btnInsert)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 222, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(exitBtn)
+                .addComponent(btnExit)
                 .addContainerGap())
         );
 
@@ -191,54 +193,94 @@ public class ProductView extends javax.swing.JInternalFrame {
         }
     }
     
-    private void nameFIeldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameFIeldActionPerformed
+    private void txtNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_nameFIeldActionPerformed
+    }//GEN-LAST:event_txtNameActionPerformed
 
-    private void insertBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertBtnActionPerformed
-        Product p = new Product();
-        ProductDAO dao = new ProductDAO();
-        
-        p.setName(nameFIeld.getText());
-        p.setCode(Integer.parseInt(codeField.getText()));
-        p.setPrice(Double.parseDouble(priceFIeld.getText()));
-        p.setQnt(Integer.parseInt(qntField.getText()));
-        
-        dao.create(p);
-        
-        listValues();
-        
-    }//GEN-LAST:event_insertBtnActionPerformed
+    private void btnInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertActionPerformed
+   
+    }//GEN-LAST:event_btnInsertActionPerformed
 
-    private void exitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitBtnActionPerformed
+    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
 
-    }//GEN-LAST:event_exitBtnActionPerformed
+    }//GEN-LAST:event_btnExitActionPerformed
 
-    private void priceFIeldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_priceFIeldActionPerformed
+    private void txtPriceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPriceActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_priceFIeldActionPerformed
+    }//GEN-LAST:event_txtPriceActionPerformed
 
-    private void codeFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_codeFieldActionPerformed
+    private void txtCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_codeFieldActionPerformed
+    }//GEN-LAST:event_txtCodeActionPerformed
 
-    private void qntFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_qntFieldActionPerformed
+    private void txtQntActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtQntActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_qntFieldActionPerformed
+    }//GEN-LAST:event_txtQntActionPerformed
+
+    public JButton getBtnExit() {
+        return btnExit;
+    }
+
+    public void setBtnExit(JButton btnExit) {
+        this.btnExit = btnExit;
+    }
+
+    public JButton getBtnInsert() {
+        return btnInsert;
+    }
+
+    public void setBtnInsert(JButton btnInsert) {
+        this.btnInsert = btnInsert;
+    }
+
+    public JTextField getTxtCode() {
+        return txtCode;
+    }
+
+    public void setTxtCode(JTextField txtCode) {
+        this.txtCode = txtCode;
+    }
+
+    public JTextField getTxtName() {
+        return txtName;
+    }
+
+    public void setTxtName(JTextField txtName) {
+        this.txtName = txtName;
+    }
+
+    public JTextField getTxtPrice() {
+        return txtPrice;
+    }
+
+    public void setTxtPrice(JTextField txtPrice) {
+        this.txtPrice = txtPrice;
+    }
+
+    public JTextField getTxtQnt() {
+        return txtQnt;
+    }
+
+    public void setTxtQnt(JTextField txtQnt) {
+        this.txtQnt = txtQnt;
+    }
+    
+    
 
 
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField codeField;
-    private javax.swing.JButton exitBtn;
-    private javax.swing.JButton insertBtn;
+    private javax.swing.JButton btnExit;
+    private javax.swing.JButton btnInsert;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField nameFIeld;
     private javax.swing.JLabel nameLabel;
-    private javax.swing.JTextField priceFIeld;
     private javax.swing.JLabel priceLabel;
     private javax.swing.JLabel priceLabel2;
     private javax.swing.JLabel priceLabel3;
-    private javax.swing.JTextField qntField;
     private javax.swing.JTable tableProducts;
+    private javax.swing.JTextField txtCode;
+    private javax.swing.JTextField txtName;
+    private javax.swing.JTextField txtPrice;
+    private javax.swing.JTextField txtQnt;
     // End of variables declaration//GEN-END:variables
 }

@@ -4,7 +4,7 @@
  */
 package View;
 
-import Controller.AddProductController;
+import Controller.ProductController;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -40,6 +40,7 @@ public class MainView extends javax.swing.JFrame {
         desktopPanel = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         productBtn = new javax.swing.JMenu();
+        jMenuItem2 = new javax.swing.JMenuItem();
         workerFIeld = new javax.swing.JMenu();
 
         jMenuItem1.setText("jMenuItem1");
@@ -69,6 +70,15 @@ public class MainView extends javax.swing.JFrame {
                 productBtnMousePressed(evt);
             }
         });
+
+        jMenuItem2.setText("Cadastrar");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        productBtn.add(jMenuItem2);
+
         jMenuBar1.add(productBtn);
 
         workerFIeld.setText("Funcionário");
@@ -100,6 +110,8 @@ public class MainView extends javax.swing.JFrame {
         ProductView productView = new ProductView();
         desktopPanel.add(productView);
         productView.setVisible(true);
+        
+        ProductController pc = new ProductController();
     }//GEN-LAST:event_productBtnMousePressed
 
     private void workerFIeldMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_workerFIeldMousePressed
@@ -107,6 +119,10 @@ public class MainView extends javax.swing.JFrame {
         desktopPanel.add(workerView);
         workerView.setVisible(true);
     }//GEN-LAST:event_workerFIeldMousePressed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+       new ProductController();
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
     
     
     
@@ -154,6 +170,7 @@ public class MainView extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenu productBtn;
     private javax.swing.JMenu workerFIeld;
     // End of variables declaration//GEN-END:variables
