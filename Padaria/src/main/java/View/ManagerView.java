@@ -6,7 +6,6 @@ package View;
 
 import Controller.ProductController;
 import java.util.ArrayList;
-import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.Product;
@@ -56,7 +55,6 @@ public class ManagerView extends javax.swing.JFrame {
         jMenuBar2.add(jMenu2);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Gerente");
 
         javax.swing.GroupLayout desktopPanelLayout = new javax.swing.GroupLayout(desktopPanel);
         desktopPanel.setLayout(desktopPanelLayout);
@@ -92,6 +90,11 @@ public class ManagerView extends javax.swing.JFrame {
         workerFIeld.setText("Usuários");
 
         btnInsertUser.setText("Cadastrar");
+        btnInsertUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnInsertUserActionPerformed(evt);
+            }
+        });
         workerFIeld.add(btnInsertUser);
 
         jMenuItem3.setText("Listar");
@@ -125,6 +128,12 @@ public class ManagerView extends javax.swing.JFrame {
         desktopPanel.add(productView);
         productView.setVisible(true);        // TODO add your handling code here:
     }//GEN-LAST:event_btnInsertActionPerformed
+
+    private void btnInsertUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertUserActionPerformed
+        ManageUsersVIew workerView = new ManageUsersVIew();
+        desktopPanel.add(workerView);
+        workerView.setVisible(true);
+    }//GEN-LAST:event_btnInsertUserActionPerformed
     
     
     
@@ -165,16 +174,6 @@ public class ManagerView extends javax.swing.JFrame {
             }
         });
     }
-
-    public JMenuItem getBtnInsertUser() {
-        return btnInsertUser;
-    }
-
-    public void setBtnInsertUser(JMenuItem btnInsertUser) {
-        this.btnInsertUser = btnInsertUser;
-    }
-    
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem btnInsert;

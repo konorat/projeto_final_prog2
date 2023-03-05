@@ -39,14 +39,12 @@ public class ProductDAO {
         
         PreparedStatement stmt = null;
         
-        String sql = "INSERT INTO produtos(nome, preco, codigo, qnt) VALUES(?,?,?,?)";
+        String sql = "INSERT INTO produtos(nome, preco) VALUES(?,?)";
         
         try {
             stmt = con.prepareStatement(sql);
             stmt.setString(1, p.getName());
             stmt.setDouble(2, p.getPrice());
-            stmt.setInt(3, p.getCode());
-            stmt.setInt(4, p.getQnt());
             
             stmt.executeUpdate();
             
@@ -75,7 +73,6 @@ public class ProductDAO {
                 p.setId(rs.getInt("id"));
                 p.setName(rs.getString("nome"));
                 p.setPrice(rs.getDouble("preco"));
-                p.setQnt(rs.getInt("qnt"));
                 
                 list.add(p);
             }

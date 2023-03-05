@@ -13,7 +13,6 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import model.Product;
 import model.User;
 
 /**
@@ -24,20 +23,28 @@ public class UserDAO {
     private static UserDAO instance;
     Connection con;
     
-    public UserDAO() {
+    private UserDAO() {
         con = ConnectionFactory.getConnection();
     }
     
-    public void create(User u) {
+    public static UserDAO getInstance() {
+        if(instance == null) {
+            instance = new UserDAO();
+        }
+        
+        return instance;
+    }
+    
+    public void create(User w) {
         PreparedStatement stmt = null;
         
-        String sql = "INSERT INTO usuarios(nome, senha, cargo) VALUES(?,?,?)";
+        String sql = "INSERT INTO funcionarios(nome, senha, cargo) VALUES(?,?,?)";
         
         try {
             stmt = con.prepareStatement(sql);
-            stmt.setString(1, u.getName());
-            stmt.setString(2, u.getPassword());
-            stmt.setInt(3, u.getRole());
+            stmt.setString(1, w.getName());
+            stmt.setString(2, w.getPassword());
+            stmt.setInt(3, w.getRole());
             
             stmt.executeUpdate();
             
@@ -79,29 +86,24 @@ public class UserDAO {
 
     
     
-    public User login(String name, String password) {
-        User u = new User();
-        
+    public boolean login(User u) {
         PreparedStatement stmt = null;
         
-        String sql = "SELECT * FROM usuarios WHERE nome=? AND senha=?";
+        String sql = "SELECT (nome, senha) FROM usuarios WHERE usuario=? AND senha=?";
         
         try {
             stmt = con.prepareStatement(sql);
-            stmt.setString(1, name);
-            stmt.setString(2, password);
-            ResultSet rs = stmt.executeQuery();
+            stmt.setString(1, u.getName());
+            stmt.setString(2, u.getPassword());
             
-            if(rs.next()) {
-                u.setId(rs.getInt("id"));
-                u.setName(rs.getString("nome"));
-                u.setPassword(rs.getString("senha"));
-                u.setRole(rs.getInt("cargo"));
-            }
+            ResultSet result = stmt.executeQuery();
+            
+            if(result != null)
+                return true;
         }catch(SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Erro: " + ex);
+            return false;
         }
         
-        return u;
+        return false;
     }
 }

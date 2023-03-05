@@ -5,29 +5,32 @@
 package model;
 
 /**
+ * @author Konorat
+ * Classe produto que pode ser adicionado ao carrinho através 
+ * de um item  ao carrinho de compras.
  *
- * @author Levy
+ * Importante: Dois produtos são considerados iguais quando ambos possuem o
+ * mesmo código.
  */
+
 public class Product {
     private int id;
-    private int code;
     private String name;
     private double price;
-    private int qnt;
+
+    public Product(String name, double price) {
+        this.name = name;
+        this.price = price;
+    }
+
+    public Product() {
+    }
 
     public int getId() {
         return id;
     }
 
     public void setId(int id) {
-        this.id = id;
-    }
-    
-    public int getCode() {
-        return id;
-    }
-
-    public void setCode(int id) {
         this.id = id;
     }
 
@@ -46,14 +49,10 @@ public class Product {
     public void setPrice(double price) {
         this.price = price;
     }
-    
-    public int getQnt() {
-        return qnt;
-    }
 
-    public void setQnt(int qnt) {
-        this.qnt = qnt;
+    @Override
+    public String toString() {
+        return "Product{" + "id=" + id + ", name=" + name + ", price=" + price + '}';
     }
-    
     
 }

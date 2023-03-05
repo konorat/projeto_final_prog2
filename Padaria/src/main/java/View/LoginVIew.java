@@ -4,20 +4,21 @@
  */
 package View;
 
-import Controller.LoginController;
 import javax.swing.JButton;
 import javax.swing.JTextField;
-
+import model.Product;
+import model.Item;
+import model.Cart;
 /**
  *
  * @author aluno
  */
-public class LoginView extends javax.swing.JFrame {
+public class LoginVIew extends javax.swing.JFrame {
 
     /**
      * Creates new form LoginVIew
      */
-    public LoginView() {
+    public LoginVIew() {
         initComponents();
     }
 
@@ -31,7 +32,7 @@ public class LoginView extends javax.swing.JFrame {
     private void initComponents() {
 
         lblUser = new javax.swing.JLabel();
-        txtUsername = new javax.swing.JTextField();
+        txtUser = new javax.swing.JTextField();
         lblPassword = new javax.swing.JLabel();
         txtPassword = new javax.swing.JTextField();
         btnSend = new javax.swing.JButton();
@@ -42,9 +43,9 @@ public class LoginView extends javax.swing.JFrame {
         lblUser.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         lblUser.setText("Usuário");
 
-        txtUsername.addActionListener(new java.awt.event.ActionListener() {
+        txtUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtUsernameActionPerformed(evt);
+                txtUserActionPerformed(evt);
             }
         });
 
@@ -58,29 +59,24 @@ public class LoginView extends javax.swing.JFrame {
         });
 
         btnSend.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        btnSend.setText("Login");
-        btnSend.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSendActionPerformed(evt);
-            }
-        });
+        btnSend.setText("Enviar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(157, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(lblPassword)
                     .addComponent(txtPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE)
                     .addComponent(lblUser)
-                    .addComponent(txtUsername))
-                .addContainerGap(158, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(176, 176, 176)
-                .addComponent(btnSend)
+                    .addComponent(txtUser))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(168, 168, 168)
+                .addComponent(btnSend)
+                .addContainerGap(180, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -88,36 +84,44 @@ public class LoginView extends javax.swing.JFrame {
                 .addGap(97, 97, 97)
                 .addComponent(lblUser)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblPassword)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(35, 35, 35)
                 .addComponent(btnSend)
-                .addContainerGap(66, Short.MAX_VALUE))
+                .addContainerGap(49, Short.MAX_VALUE))
         );
 
         pack();
-        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsernameActionPerformed
+    private void txtUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUserActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtUsernameActionPerformed
+    }//GEN-LAST:event_txtUserActionPerformed
 
     private void txtPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasswordActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPasswordActionPerformed
 
-    private void btnSendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSendActionPerformed
-        LoginController loginController = new LoginController(this);
-    }//GEN-LAST:event_btnSendActionPerformed
-
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
+        /////////////////////testes
+        
+        Product prodTeste = new Product("Matheus", 120);
+        Item itemTeste = new Item(prodTeste, 2);
+        Cart cartTeste = new Cart();
+        cartTeste.addItem(prodTeste, 2);
+        System.out.println(cartTeste.getTotalP());
+        System.out.println(cartTeste.getItens());
+        
+        
+        
+        
+        /////////////////testes
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -131,21 +135,20 @@ public class LoginView extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(LoginView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginVIew.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(LoginView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginVIew.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(LoginView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginVIew.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(LoginView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginVIew.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new LoginView().setVisible(true);
+                new LoginVIew().setVisible(true);
             }
         });
     }
@@ -158,12 +161,12 @@ public class LoginView extends javax.swing.JFrame {
         this.txtPassword = txtPassword;
     }
 
-    public JTextField getTxtUserName() {
-        return txtUsername;
+    public JTextField getTxtUser() {
+        return txtUser;
     }
 
-    public void setTxtUserName(JTextField txtUser) {
-        this.txtUsername = txtUser;
+    public void setTxtUser(JTextField txtUser) {
+        this.txtUser = txtUser;
     }
     
     
@@ -183,6 +186,6 @@ public class LoginView extends javax.swing.JFrame {
     private javax.swing.JLabel lblPassword;
     private javax.swing.JLabel lblUser;
     private javax.swing.JTextField txtPassword;
-    private javax.swing.JTextField txtUsername;
+    private javax.swing.JTextField txtUser;
     // End of variables declaration//GEN-END:variables
 }
