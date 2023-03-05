@@ -40,9 +40,12 @@ public class ProductController {
     }
     
     private void insertProduct(){
-        Product p = new Product();           
+        Product p = new Product();
+                
         p.setName(view.getTxtName().getText());
+        p.setCode(Integer.parseInt(view.getTxtCode().getText()));
         p.setPrice(Double.parseDouble(view.getTxtPrice().getText()));
+        p.setQnt(Integer.parseInt(view.getTxtQnt().getText()));
         
         productdao.create(p);
         

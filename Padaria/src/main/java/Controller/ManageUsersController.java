@@ -4,20 +4,31 @@
  */
 package Controller;
 
-import View.ManageUsersVIew;
+import View.ManageUsersView;
+import model.User;
+import model.dao.UserDAO;
 
 /**
  *
  * @author aluno
  */
 public class ManageUsersController {
-    private ManageUsersVIew view;
+    private ManageUsersView view;
+    private UserDAO userdao;
     
     public ManageUsersController() {
-        view = new ManageUsersVIew();
+        view = new ManageUsersView();
+        view.setVisible(true);
         
         view.getBtnInsert().addActionListener((e) -> {
-            
+            User u = new User();
+            userdao = new UserDAO();
+
+            u.setName(view.getTxtName().getText());
+            u.setPassword(view.getTxtPassword().getText());
+            u.setRole(view.getComboboxRole().getSelectedIndex()+1);
+
+            userdao.create(u);
         });
     }
 }

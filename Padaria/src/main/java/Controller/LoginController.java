@@ -4,7 +4,8 @@
  */
 package Controller;
 
-import View.LoginVIew;
+import View.LoginView;
+import javax.swing.JOptionPane;
 import model.User;
 import model.dao.UserDAO;
 
@@ -13,29 +14,34 @@ import model.dao.UserDAO;
  * @author aluno
  */
 public class LoginController {
-    private LoginVIew view;
+    private LoginView view;
     private User user;
     private UserDAO userdao;
     
-    public LoginController() {
-        view = new LoginVIew();
-        userdao = UserDAO.getInstance();
+    public LoginController(LoginView view) {
+        this.view = view;
+        userdao = new UserDAO();
         
-        view.getBtnSend().addActionListener((e) -> {
-            login();
-        });
+        login();
     }
     
-    private void login() {
-        User user = new User();
+    private void login() {        
+        String name = view.getTxtUserName().getText();
+        String password = view.getTxtPassword().getText();
         
-        user.setName(view.getTxtUser().getText());
-        user.setPassword(view.getTxtPassword().getText());
+        userdao = new UserDAO();
         
-        userdao = UserDAO.getInstance();
+        User user = userdao.login(name, password);
         
-        if(userdao.login(user)) {
+        if(user.getId() != 0) {
+            if(user.getRole() == 1)
+                new ManagerController();
+            else if(user.getRole() == 2)
+                new CashierController();
             
+            view.dispose();
+        }else {
+            JOptionPane.showMessageDialog(null, "Erro no login. Tente novamente!");
         }
         
         
